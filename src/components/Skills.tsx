@@ -17,7 +17,6 @@ import {
 const skills = [
   { name: 'PHP', icon: <FaPhp className='text-blue-700 text-3xl' /> },
   { name: 'Laravel', icon: <FaLaravel className='text-red-500 text-3xl' /> },
-  { name: 'JavaScript', icon: <FaJs className='text-yellow-400 text-3xl' /> },
   { name: 'Vue.js', icon: <FaVuejs className='text-green-500 text-3xl' /> },
   { name: 'React.js', icon: <FaReact className='text-cyan-500 text-3xl' /> },
   { name: 'Next.js', icon: <FaReact className='text-black text-3xl' /> }, // Added Next.js
