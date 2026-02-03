@@ -59,7 +59,7 @@ const Hero = () => {
           <div className='flex flex-col items-center md:items-start text-left w-full md:w-1/2'>
             <div className='mx-auto md:mx-0 mb-6 w-44 h-44 rounded-full p-[3px] bg-gradient-to-tr from-blue-400 via-primary to-yellow-200 animate-border-spin'>
               <img
-                src='/images/anis.jpeg'
+                src='/dist/assets/images/anis.jpeg'
                 alt='Anis Zahidah'
                 className='w-full h-full rounded-full object-cover border-4 border-white shadow-lg shadow-blue-100/40'
               />
@@ -179,7 +179,7 @@ const Hero = () => {
                     <div className='flex items-center justify-between'>
                       <div className='flex items-center gap-4'>
                         <img
-                          src='/images/UNIMAS-logo.png'
+                          src='/dist/assets/images/UNIMAS-logo.png'
                           alt='Unimas Logo'
                           className='w-10 h-10 rounded-full bg-white object-contain p-1 shadow-md'
                           style={{ objectFit: 'contain', background: '#fff' }}
@@ -201,7 +201,7 @@ const Hero = () => {
                     <div className='flex items-center justify-between'>
                       <div className='flex items-center gap-4'>
                         <img
-                          src='/images/kmpk.png'
+                          src='/dist/assets/images/kmpk.png'
                           alt='KMPK Logo'
                           className='w-10 h-10 rounded-full bg-white object-contain p-1 shadow-md'
                           style={{ objectFit: 'contain', background: '#fff' }}
