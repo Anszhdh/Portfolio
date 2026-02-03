@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 
-const subtitleText = 'Full Stack Web Developer'
+const subtitleText = 'Full Stack Developer'
 
 const Hero = () => {
   // Typewriter effect for subtitle
@@ -131,7 +131,7 @@ const Hero = () => {
                   <li className='flex items-center gap-3'>
                     <span className='inline-block w-3 h-3 rounded-full bg-lime-400 shadow-lime-300 shadow-[0_0_8px_2px] animate-pulse'></span>
                     <span className='bg-gradient-to-r from-lime-400 via-green-400 to-emerald-400 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(163,230,53,0.3)]'>
-                      Clean, maintainable coding style
+                      Clean, maintainable coding
                     </span>
                   </li>
                 </ul>

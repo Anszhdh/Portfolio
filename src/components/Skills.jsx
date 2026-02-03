@@ -20,20 +20,13 @@ const skills = [
   { name: 'JavaScript', icon: <FaJs className='text-yellow-400 text-3xl' /> },
   { name: 'Vue.js', icon: <FaVuejs className='text-green-500 text-3xl' /> },
   { name: 'React.js', icon: <FaReact className='text-cyan-500 text-3xl' /> },
+  { name: 'Next.js', icon: <FaReact className='text-black text-3xl' /> }, // Added Next.js
   { name: 'HTML/CSS', icon: <FaHtml5 className='text-orange-500 text-3xl' /> },
-  { name: 'MySQL', icon: <FaDatabase className='text-blue-400 text-3xl' /> }
+  { name: 'MySQL', icon: <FaDatabase className='text-blue-400 text-3xl' /> },
+  { name: 'SQL', icon: <FaDatabase className='text-indigo-500 text-3xl' /> }
 ]
 
-const additionalSkills = [
-  'Git',
-  'Docker',
-  'REST APIs',
-  'GraphQL',
-  'TypeScript',
-  'Tailwind CSS',
-  'Node.js',
-  'PostgreSQL'
-]
+const additionalSkills = ['Git', 'REST APIs', 'GraphQL', 'TypeScript', 'Tailwind CSS', 'Node.js']
 
 const timelineIcons = [
   <FaLaptopCode className='text-xl' />,
@@ -45,55 +38,41 @@ const timelineIcons = [
 
 const experiences = [
   {
-    title: 'Completed a Frontend Development Course',
+    title: 'WRO International — Developer Intern',
+    period: 'Mar 2023 – Aug 2023',
     description: (
       <>
-        Started the journey into web development by enrolling in a frontend course focused on HTML,
-        CSS, and JavaScript fundamentals.
-        <br />
-        Successfully completed the course and received a{' '}
-        <span className='text-blue-400 underline'>certification</span> upon graduation.
+        Worked on and maintained multiple web systems across various industries including eCommerce,
+        health, beauty, food, and supplements. Built and enhanced features using Laravel and Vue.js,
+        and managed code using Git-based version control. Assisted in developing new modules,
+        improving existing functionalities, and performing debugging and issue resolution across
+        frontend and system components. Contributed to UI/UX improvements to ensure better
+        usability, consistency, and overall user experience.
       </>
     )
   },
   {
-    title: 'Frontend Developer – [Company Name]',
+    title: 'GR Business Solutions Sdn Bhd — Developer',
+    period: 'Apr 2025 – Present',
     description: (
       <>
-        Worked as a frontend developer building dynamic web interfaces using React and CSS
-        frameworks. Collaborated closely with designers to turn mockups into pixel-perfect user
-        experiences.
+        Involved in end-to-end project development including system design, feature implementation,
+        and integration. Developed a web-based game using Next.js that integrates with a client
+        mobile application, where user gameplay generates reward points inside the client’s app.
       </>
     )
   },
   {
-    title: 'Backend Development Bootcamp',
+    title: 'Unijaya Resource Sdn Bhd — Junior Developer',
+    period: '',
     description: (
       <>
-        After gaining experience in frontend, enrolled in a backend-focused program covering
-        Node.js, Express, MongoDB, and API design. Built several full-featured server-side
-        applications and worked with databases, authentication, and RESTful services.{' '}
-        <span className='text-blue-400'>certification</span>
-      </>
-    )
-  },
-  {
-    title: 'Became a Full-Stack Developer',
-    description: (
-      <>
-        After months of learning and hands-on experience, made the leap from frontend to full-stack
-        development. This transition allowed for deeper technical involvement and broader
-        problem-solving.
-      </>
-    )
-  },
-  {
-    title: 'Full-Stack Developer – [Company Name]',
-    description: (
-      <>
-        After transitioning into full-stack development, took on end-to-end ownership of
-        projects—from designing the frontend to implementing backend logic and deploying
-        applications. Worked in an agile team, contributing to scalable and maintainable codebases.
+        Worked on web application projects for government agencies such as Kementerian Kesihatan
+        Malaysia, Jabatan Perdana Menteri, and FINAS, as well as corporate clients. Built responsive
+        public portals, dashboards, and admin interfaces with a strong focus on usability and clean
+        UI. Implemented Google Analytics 4 (GA4) and Google Tag Manager (GTM) for user behavior
+        tracking and reporting. Designed web prototypes for tender submissions, showcasing proposed
+        system features and UI flows.
       </>
     )
   }
@@ -101,6 +80,22 @@ const experiences = [
 
 const Skills = () => {
   const [sectionRef, visible] = useScrollFadeIn()
+  const [expandedIdx, setExpandedIdx] = useState(null)
+
+  // Helper to truncate description
+  const getShortDescription = (desc) => {
+    // Just show first sentence for preview
+    if (typeof desc === 'string') {
+      return desc.split('.').slice(0, 1).join('.') + '.'
+    }
+    // For JSX, render only first 1-2 sentences (naive approach)
+    const text =
+      desc.props.children.join ? desc.props.children.join(' ')
+      : Array.isArray(desc.props.children) ?
+        desc.props.children.filter((x) => typeof x === 'string').join(' ')
+      : desc.props.children
+    return text.split('.').slice(0, 1).join('.') + '.'
+  }
 
   return (
     <section
@@ -175,12 +170,60 @@ const Skills = () => {
                     ${idx === 0 ? 'ring-2 ring-blue-400' : ''}
                   `}
                   >
-                    {timelineIcons[idx]}
+                    {timelineIcons[idx] || timelineIcons[0]}
                   </span>
                   {/* Timeline Content */}
                   <div className='ml-10'>
-                    <h3 className='text-lg font-bold text-white mb-1 font-mono'>{exp.title}</h3>
-                    <div className='text-gray-300 text-sm leading-relaxed'>{exp.description}</div>
+                    <h3 className='text-lg font-bold text-gray-900 mb-1 font-mono'>
+                      {exp.title}
+                      {exp.period && (
+                        <span className='block text-xs text-gray-500 font-normal font-sans'>
+                          {exp.period}
+                        </span>
+                      )}
+                    </h3>
+                    <div className='text-gray-700 text-sm leading-relaxed'>
+                      {expandedIdx === idx ?
+                        <>
+                          {exp.description}
+                          <span
+                            className='ml-2 cursor-pointer select-none inline-flex items-center gap-1 text-xs font-mono text-blue-500 bg-white/80 rounded shadow-sm px-2 py-1 transition hover:bg-blue-50 hover:text-blue-600'
+                            onClick={() => setExpandedIdx(null)}
+                            title='Collapse details'
+                          >
+                            <svg
+                              className='w-3 h-3 transition-transform duration-200 rotate-90 text-blue-400'
+                              fill='none'
+                              stroke='currentColor'
+                              strokeWidth={2}
+                              viewBox='0 0 24 24'
+                            >
+                              <path strokeLinecap='round' strokeLinejoin='round' d='M9 5l7 7-7 7' />
+                            </svg>
+                            <span className='opacity-90'>// collapse details</span>
+                          </span>
+                        </>
+                      : <>
+                          {getShortDescription(exp.description)}
+                          <span
+                            className='ml-2 cursor-pointer select-none inline-flex items-center gap-1 text-xs font-mono text-blue-400 bg-white/70 rounded shadow-sm px-2 py-1 transition hover:bg-blue-50 hover:text-blue-600'
+                            onClick={() => setExpandedIdx(idx)}
+                            title='Expand details'
+                          >
+                            <svg
+                              className='w-3 h-3 transition-transform duration-200 text-blue-400'
+                              fill='none'
+                              stroke='currentColor'
+                              strokeWidth={2}
+                              viewBox='0 0 24 24'
+                            >
+                              <path strokeLinecap='round' strokeLinejoin='round' d='M9 5l7 7-7 7' />
+                            </svg>
+                            <span className='opacity-90'>// expand details</span>
+                          </span>
+                        </>
+                      }
+                    </div>
                   </div>
                 </div>
               ))}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const menuItems = ['About', 'Skills', 'Projects', 'Experience']
+  const menuItems = ['About', 'Skills', 'Projects']
   const [activeSection, setActiveSection] = useState('')
 
   const scrollToSection = (item) => {
@@ -49,14 +49,6 @@ const Header = () => {
               </button>
             </li>
           ))}
-          <li>
-            <button
-              onClick={() => scrollToSection('Contact')}
-              className='ml-4 px-4 py-2 rounded bg-primary text-white font-medium hover:bg-primary/90 transition relative overflow-hidden shine-btn'
-            >
-              Contact
-            </button>
-          </li>
         </ul>
         {/* Mobile menu */}
         <button className='md:hidden text-gray-700' onClick={() => setIsOpen(!isOpen)}>
