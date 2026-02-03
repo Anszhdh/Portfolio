@@ -52,7 +52,7 @@ const experiences = [
   },
   {
     title: 'GR Business Solutions Sdn Bhd — Developer',
-    period: 'Apr 2025 – Present',
+    period: 'September 2024 – April 2025',
     description: (
       <>
         Involved in end-to-end project development including system design, feature implementation,
@@ -63,7 +63,7 @@ const experiences = [
   },
   {
     title: 'Unijaya Resource Sdn Bhd — Junior Developer',
-    period: '',
+    period: 'April 2025 – Present',
     description: (
       <>
         Worked on web application projects for government agencies such as Kementerian Kesihatan
@@ -78,28 +78,31 @@ const experiences = [
 ]
 
 const Skills = () => {
-  const [sectionRef, visible] = useScrollFadeIn()
-  const [expandedIdx, setExpandedIdx] = useState(null)
+  const [sectionRef, visible] = useScrollFadeIn() as [React.RefObject<HTMLElement>, boolean]
+  const [expandedIdx, setExpandedIdx] = useState<number | null>(null)
 
   // Helper to truncate description
-  const getShortDescription = (desc) => {
+  const getShortDescription = (desc: string | { props: { children: React.ReactNode } }) => {
     // Just show first sentence for preview
     if (typeof desc === 'string') {
       return desc.split('.').slice(0, 1).join('.') + '.'
     }
     // For JSX, render only first 1-2 sentences (naive approach)
-    const text =
-      desc.props.children.join ? desc.props.children.join(' ')
-      : Array.isArray(desc.props.children) ?
-        desc.props.children.filter((x) => typeof x === 'string').join(' ')
-      : desc.props.children
-    return text.split('.').slice(0, 1).join('.') + '.'
+    let text: string = ''
+    if (desc.props.children) {
+      if (Array.isArray(desc.props.children)) {
+        text = desc.props.children.filter((x: React.ReactNode) => typeof x === 'string').join(' ')
+      } else if (typeof desc.props.children === 'string') {
+        text = desc.props.children
+      }
+    }
+    return text ? text.split('.').slice(0, 1).join('.') + '.' : ''
   }
 
   return (
     <section
       id='skills'
-      ref={sectionRef}
+      ref={sectionRef as React.RefObject<HTMLElement>}
       className={`relative py-20 ${visible ? 'animate-section-fade-in-up' : 'opacity-0 translate-y-12'}`}
     >
       {/* SVG background stays the same */}

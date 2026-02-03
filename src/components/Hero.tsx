@@ -16,9 +16,9 @@ const Hero = () => {
   }, [])
 
   // Parallax effect for SVG grid
-  const gridRef = useRef(null)
+  const gridRef = useRef<SVGSVGElement>(null)
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       if (!gridRef.current) return
       const { innerWidth, innerHeight } = window
       const x = (e.clientX / innerWidth - 0.5) * 20
@@ -30,7 +30,10 @@ const Hero = () => {
   }, [])
 
   return (
-    <section className='relative min-h-screen flex items-center justify-center pt-24 overflow-hidden'>
+    <section
+      id='about'
+      className='relative min-h-screen flex items-center justify-center pt-24 overflow-hidden'
+    >
       {/* Parallax SVG grid background */}
       <svg
         ref={gridRef}
@@ -76,11 +79,41 @@ const Hero = () => {
                 onClick={() =>
                   document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
                 }
-                className='px-8 py-3 rounded bg-white border border-gray-200 text-gray-400 font-bold font-mono shadow-md tracking-wide cursor-pointer transition hover:shadow-lg hover:-translate-y-1'
-                style={{ boxShadow: '0 2px 8px 0 #e5e7eb80' }}
+                className='px-7 py-3 rounded-lg bg-white border border-blue-600 text-blue-700 font-semibold font-mono shadow-sm tracking-wide cursor-pointer transition hover:bg-blue-50 hover:border-blue-700 hover:shadow-md flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-200'
+                aria-label='View Projects'
               >
+                <svg
+                  className='w-5 h-5 text-blue-600'
+                  fill='none'
+                  stroke='currentColor'
+                  strokeWidth='2'
+                  viewBox='0 0 24 24'
+                >
+                  <path strokeLinecap='round' strokeLinejoin='round' d='M13 7l5 5m0 0l-5 5m5-5H6' />
+                </svg>
                 View Projects
               </button>
+              <a
+                href='/images/cv.pdf'
+                download
+                className='px-7 py-3 rounded-lg bg-blue-600 text-white font-semibold font-mono shadow-sm tracking-wide cursor-pointer transition hover:bg-blue-700 hover:shadow-md flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-200'
+                aria-label='Download CV'
+              >
+                <svg
+                  className='w-5 h-5 text-white'
+                  fill='none'
+                  stroke='currentColor'
+                  strokeWidth='2'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    d='M12 4v12m0 0l-4-4m4 4l4-4m-4 4V4'
+                  />
+                </svg>
+                Download CV
+              </a>
             </div>
           </div>
           {/* Right: About Content */}

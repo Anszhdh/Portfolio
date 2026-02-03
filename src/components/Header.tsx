@@ -5,7 +5,7 @@ const Header = () => {
   const menuItems = ['About', 'Skills', 'Projects']
   const [activeSection, setActiveSection] = useState('')
 
-  const scrollToSection = (item) => {
+  const scrollToSection = (item: string) => {
     const element = document.getElementById(item.toLowerCase())
     element?.scrollIntoView({ behavior: 'smooth' })
     setIsOpen(false)
@@ -31,10 +31,8 @@ const Header = () => {
   return (
     <header className='fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100 shadow-lg animate-fade-in'>
       <nav className='container mx-auto px-6 py-4 flex items-center justify-between'>
-        <span className='font-serif text-2xl font-bold tracking-tight text-gray-900'>
-          Anis Zahidah
-        </span>
-        <ul className='hidden md:flex space-x-8 items-center'>
+        {/* Removed name, keep menu right-aligned */}
+        <ul className='hidden md:flex space-x-8 items-center ml-auto'>
           {menuItems.map((item) => (
             <li key={item}>
               <button

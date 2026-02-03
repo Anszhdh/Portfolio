@@ -3,9 +3,9 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin } from 'react
 import useScrollFadeIn from '../hooks/useScrollFadeIn'
 
 const Contact = () => {
-  const [ref, visible] = useScrollFadeIn()
+  const [ref, visible] = useScrollFadeIn() as [React.RefObject<HTMLElement>, boolean]
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     alert('Message sent! (This is a demo)')
   }
@@ -13,7 +13,7 @@ const Contact = () => {
   return (
     <section
       id='contact'
-      ref={ref}
+      ref={ref as React.RefObject<HTMLElement>}
       className={`relative py-20 ${visible ? 'animate-section-fade-in-up' : 'opacity-0 translate-y-12'}`}
     >
       {/* More obvious developer SVG background: envelope, chat, and @ symbol */}
@@ -115,7 +115,7 @@ const Contact = () => {
               <div>
                 <label className='block text-sm text-gray-700 mb-2'>Message</label>
                 <textarea
-                  rows='5'
+                  rows={5}
                   placeholder='Tell me about your project...'
                   className='w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-primary text-gray-800 resize-none'
                   required
