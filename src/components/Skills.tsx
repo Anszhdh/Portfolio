@@ -19,13 +19,13 @@ const skills = [
   { name: 'Laravel', icon: <FaLaravel className='text-red-500 text-3xl' /> },
   { name: 'Vue.js', icon: <FaVuejs className='text-green-500 text-3xl' /> },
   { name: 'React.js', icon: <FaReact className='text-cyan-500 text-3xl' /> },
-  { name: 'Next.js', icon: <FaReact className='text-black text-3xl' /> }, // Added Next.js
-  { name: 'HTML/CSS', icon: <FaHtml5 className='text-orange-500 text-3xl' /> },
+  { name: 'Express.js', icon: <FaServer className='text-black text-3xl' /> },
+  { name: 'Next.js', icon: <FaReact className='text-black text-3xl' /> },
   { name: 'MySQL', icon: <FaDatabase className='text-blue-400 text-3xl' /> },
-  { name: 'SQL', icon: <FaDatabase className='text-indigo-500 text-3xl' /> }
+  { name: 'PostgreSQL', icon: <FaDatabase className='text-indigo-500 text-3xl' /> }
 ]
 
-const additionalSkills = ['Git', 'REST APIs', 'GraphQL', 'TypeScript', 'Tailwind CSS', 'Node.js']
+const additionalSkills = ['Git', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Figma', 'Adobe XD']
 
 const timelineIcons = [
   <FaLaptopCode className='text-xl' />,
@@ -41,12 +41,8 @@ const experiences = [
     period: 'Mar 2023 – Aug 2023',
     description: (
       <>
-        Worked on and maintained multiple web systems across various industries including eCommerce,
-        health, beauty, food, and supplements. Built and enhanced features using Laravel and Vue.js,
-        and managed code using Git-based version control. Assisted in developing new modules,
-        improving existing functionalities, and performing debugging and issue resolution across
-        frontend and system components. Contributed to UI/UX improvements to ensure better
-        usability, consistency, and overall user experience.
+        Developed and maintained e-commerce platforms, handling end-to-end workflows from product
+        flow to checkout and payment. Improved UI/UX for better usability and visual consistency.
       </>
     )
   },
@@ -56,7 +52,7 @@ const experiences = [
     description: (
       <>
         Involved in end-to-end project development including system design, feature implementation,
-        and integration. Developed a web-based game using Next.js that integrates with a client
+        and integration. Developed a web-based game using Express.js that integrates with a client
         mobile application, where user gameplay generates reward points inside the client’s app.
       </>
     )
@@ -66,12 +62,12 @@ const experiences = [
     period: 'April 2025 – Present',
     description: (
       <>
-        Worked on web application projects for government agencies such as Kementerian Kesihatan
-        Malaysia, Jabatan Perdana Menteri, and FINAS, as well as corporate clients. Built responsive
-        public portals, dashboards, and admin interfaces with a strong focus on usability and clean
-        UI. Implemented Google Analytics 4 (GA4) and Google Tag Manager (GTM) for user behavior
-        tracking and reporting. Designed web prototypes for tender submissions, showcasing proposed
-        system features and UI flows.
+        Worked on web systems for government agencies and corporate clients, including Kementerian
+        Kesihatan Malaysia, Jabatan Perdana Menteri, and FINAS. Focused primarily on frontend
+        development while supporting backend implementation. Designed and developed responsive
+        portals, dashboards, and admin interfaces. Contributed to the design-to-development process
+        for FINAS’s official portal revamp, and created UI prototypes for government tender
+        submissions.
       </>
     )
   }

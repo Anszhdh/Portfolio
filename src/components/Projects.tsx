@@ -7,31 +7,44 @@ const Projects = () => {
   // Placeholder cards for deployment
   const projects = [1, 2, 3]
 
-  return (
-    <section
-      id='projects'
-      ref={ref as React.RefObject<HTMLElement>}
-      className={`py-20 ${visible ? 'animate-section-fade-in-up' : 'opacity-0 translate-y-12'}`}
-    >
-      <div className='container mx-auto px-6'>
-        <h2 className='text-4xl font-bold text-center mb-2 text-gray-900 font-mono tracking-tight'>
-          Featured Projects
-        </h2>
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mt-12'>
-          {projects.map((_, index) => (
-            <div
-              key={index}
-              className='relative border border-slate-200 rounded-xl p-6 bg-white shadow-md flex items-center justify-center min-h-[180px] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group overflow-hidden animate-fade-in-up'
-              style={{ animationDelay: `${index * 120 + 200}ms`, animationFillMode: 'forwards' }}
-            >
-              <FaGithub size={48} className='text-blue-600' />
-            </div>
-          ))}
-        </div>
-        <div className='w-24 h-1 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200 rounded-full mx-auto my-12 opacity-70'></div>
-      </div>
-    </section>
-  )
+  // Featured Projects section is commented out for now
+  // ...existing code...
+
+  // Dashboard UI Attachment section is commented out for now
+  // return (
+  //   <section id='dashboard-ui' className='py-20 bg-slate-50'>
+  //     <div className='container mx-auto px-6'>
+  //       <h2 className='text-3xl font-bold text-center mb-2 text-gray-900 font-mono tracking-tight'>
+  //         Dashboard UI Attachment
+  //       </h2>
+  //       <div className='flex flex-col items-center justify-center mt-12'>
+  //         {/* Responsive image gallery for dashboard UI */}
+  //         <div className='w-full max-w-4xl border-2 border-dashed border-blue-300 rounded-xl bg-white p-6'>
+  //           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
+  //             {/* Replace these src values with your actual dashboard images */}
+  //             <img
+  //               src='/images/anis.jpeg'
+  //               alt='Dashboard 1'
+  //               className='rounded-lg shadow object-cover w-full h-56'
+  //             />
+  //             <img
+  //               src='/images/UNIMAS-logo.png'
+  //               alt='Dashboard 2'
+  //               className='rounded-lg shadow object-cover w-full h-56'
+  //             />
+  //             <img
+  //               src='/images/kmpk.png'
+  //               alt='Dashboard 3'
+  //               className='rounded-lg shadow object-cover w-full h-56'
+  //             />
+  //             {/* Add more <img> tags as needed */}
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </section>
+  // )
+  return null
 }
 
 export default Projects
