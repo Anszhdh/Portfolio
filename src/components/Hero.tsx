@@ -95,7 +95,7 @@ const Hero = () => {
                 View Projects
               </button>
               <a
-                href={assetUrl('images/cv.pdf')}
+                href={assetUrl('images/NurAnisZahidahResume.pdf')}
                 download
                 className='px-7 py-3 rounded-lg bg-blue-600 text-white font-semibold font-mono shadow-sm tracking-wide cursor-pointer transition hover:bg-blue-700 hover:shadow-md flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-200'
                 aria-label='Download CV'
